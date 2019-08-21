@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="ga_sessionTimeout">300</integer>
+    <bool name="ga_autoActivityTracking">true</bool>
+    <screenName name="com.example.arunabhac.mytestapp.MainActivity">
+        Main Activity
+    </screenName>
+
+    <bool name="ga_reportUncaughtExceptions">false</bool>
+    <string name="ga_trackingId">UA-61219041-1</string>
+
+</resources>

@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+
+    //Signing configurations for build variants "release"
+    signingConfigs {
+        release {
+            storeFile file('C:/Users/arunabha.c/Desktop/testapp.jks')
+            storePassword 'testapp'
+            keyAlias 'testapp'
+            keyPassword 'testapp'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.imi.arunabhac.mytestapp"
+        minSdkVersion 23
+        targetSdkVersion 26
+        versionCode 252
+        versionName "4.6"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.google.firebase:firebase-invites:11.4.2'
+    implementation 'com.google.firebase:firebase-core:11.4.2'
+    implementation 'com.google.firebase:firebase-messaging:11.4.2'
+    implementation 'com.google.firebase:firebase-config:11.4.2'
+    implementation 'com.google.android.gms:play-services-analytics:11.4.2'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
+    implementation 'com.google.android.gms:play-services-tagmanager:11.4.2'
+    implementation 'com.google.firebase:firebase-messaging:11.4.2'
+    testCompile 'junit:junit:4.12'
+}
+apply plugin: 'com.google.gms.google-services'
